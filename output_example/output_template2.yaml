@@ -1,0 +1,5442 @@
+prefixes:
+      ex: "http://www.example.com/"
+      schema: "http://schema.org/"
+      rdf: "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+      ncit: "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#"
+      protrait: "https://protrait.com/"
+      grel: http://users.ugent.be/~bjdmeest/function/grel.ttl#
+      roo: "http://www.cancerdata.org/roo/"
+      purl: "http://purl.bioontology.org/ontology/SNMI/"
+    
+    
+    
+    sources:
+      patientWeightSource:
+        #query: SELECT * FROM public.hn_bl;
+        access: "/app/data/dataexport.csv"
+        referenceFormulation: ql:CSV
+        
+    mappings:
+    
+    PatientData:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)
+        po:
+            - [a,ncit:C16960]
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/preparationProcedure
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/clinicalVariables
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment
+            
+
+    
+    mcRobEvalTransMargY:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness/mcRobEvalTransMargY
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness/mcRobEvalTransMargY/hn_bl_rt_rob_eval_trans_y
+            
+        
+
+    
+    radTechniquePhotons:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/radTechniquePhotons
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/radTechniquePhotons/hn_bl_rt_rt_techn_bl_pho
+            
+        
+
+    
+    photonPlanning:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton
+            
+        
+
+    
+    osteoRadioNecrosis:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/radiationInducedSideEffects/osteoRadioNecrosis
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/radiationInducedSideEffects/osteoRadioNecrosis/hn_bl_tox_osteoradion
+            
+        
+
+    
+    regionalRecurrenceTreatment:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/baselineTreatment/regionalRecurrenceTreatment
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/baselineTreatment/regionalRecurrenceTreatment/hn_bl_treatm_reg_recur
+            
+        
+
+    
+    p16Status:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/viralStatus/p16Status
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/viralStatus/p16Status/hn_bl_p16
+            
+        
+
+    
+    treatment:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/treatment
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/treatment/imagingType
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/treatment/imagingTypeOther
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/treatment/positionCorrectionType
+            
+        
+
+    
+    planningMRI:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/imaging/planningMRI
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/imaging/planningMRI/hn_bl_prep_plan_mri
+            
+        
+
+    
+    mcRobEvalRangeRotRoll:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness/mcRobEvalRangeRotRoll
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness/mcRobEvalRangeRotRoll/hn_bl_rt_rob_eval_rot_roll
+            
+        
+
+    
+    mcRobEvalRangeRotUsed:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness/mcRobEvalRangeRotUsed
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness/mcRobEvalRangeRotUsed/hn_bl_rt_rob_eval_rot_use
+            
+        
+
+    
+    numberOfLymphNodesPathology:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/surgery/headAndNeckSurgery/numberOfLymphNodesPathology
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/surgery/headAndNeckSurgery/numberOfLymphNodesPathology/hn_bl_surg_neck_ln_path
+            
+        
+
+    
+    clinicalVariables:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/clinicalVariables
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/clinicalVariables/weightLoss3MonthsBeforeRt
+            
+        
+
+    
+    neoplasm:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/primaryTumourSite
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/otherTumourSite
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/histology
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/viralStatus
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/tumourProperties
+            
+        
+
+    
+    doseEngine:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/doseEngine
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/doseEngine/hn_bl_rt_dose_eng
+            
+        
+
+    
+    ctv2Volume:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/ctv2Volume
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/ctv2Volume/hn_bl_prep_plan_ctv2
+            
+        
+
+    
+    ebvStatus:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/viralStatus/ebvStatus
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/viralStatus/ebvStatus/hn_bl_ebv
+            
+        
+
+    
+    previousSolidTumour:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/previousSolidTumour
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/previousSolidTumour/hn_bl_tox_prev_sol_tum
+            
+        
+
+    
+    radTechniqueProtons:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/radTechniqueProtons
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/radTechniqueProtons/hn_bl_rt_rt_techn_bl_pro
+            
+        
+
+    
+    robustnesOptTransX:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness/robustnesOptTransX
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness/robustnesOptTransX/hn_bl_rt_rob_op_trans_x
+            
+        
+
+    
+    mcRobEvalRangeRotYaw:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness/mcRobEvalRangeRotYaw
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness/mcRobEvalRangeRotYaw/hn_bl_rt_rob_eval_rot_yaw
+            
+        
+
+    
+    oralMucositis:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/radiationInducedSideEffects/oralMucositis
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/radiationInducedSideEffects/oralMucositis/hn_bl_tox_mucositis
+            
+        
+
+    
+    cancerTreatment:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/baselineTreatment
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/systemicTreatment
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/surgery
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/reirradiation
+            
+        
+
+    
+    surgery:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/surgery
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/surgery/procedureDate
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/surgery/headAndNeckSurgery
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/surgery/hn_bl_surg_tumour
+            
+        
+
+    
+    repaintingType:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/repaintingType
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/repaintingType/hn_bl_rt_repaint
+            
+        
+
+    
+    ctv1Volume:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/ctv1Volume
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/ctv1Volume/hn_bl_prep_plan_ctv1
+            
+        
+
+    
+    ctv3Volume:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/ctv3Volume
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/ctv3Volume/hn_bl_prep_plan_ctv3
+            
+        
+
+    
+    robustnesOptTransZ:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness/robustnesOptTransZ
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness/robustnesOptTransZ/hn_bl_rt_rob_op_trans_z
+            
+        
+
+    
+    previousLeukemia:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/previousLeukemia
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/previousLeukemia/hn_bl_tox_prev_leuk
+            
+        
+
+    
+    clinicalMStageV8:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/tnmStagingV8/clinicalMStageV8
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/tnmStagingV8/clinicalMStageV8/hn_bl_mstage_8
+            
+        
+
+    
+    mcRobEvalRangeUnc:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness/mcRobEvalRangeUnc
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness/mcRobEvalRangeUnc/hn_bl_rt_rob_eval_range_unc
+            
+        
+
+    
+    tnmStagingV8:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/tnmStagingV8
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/tnmStagingV8/clinicalTStageV8
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/tnmStagingV8/additionalTStageV8
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/tnmStagingV8/clinicalNStageV8
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/tnmStagingV8/clinicalMStageV8
+            
+        
+
+    
+    additionalTStageV7:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/tnmStagingV7/additionalTStageV7
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/tnmStagingV7/additionalTStageV7/hn_bl_tstage_7_add
+            
+        
+
+    
+    numberOfLymphNodesMetastasesECS:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/surgery/headAndNeckSurgery/numberOfLymphNodesMetastasesECS
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/surgery/headAndNeckSurgery/numberOfLymphNodesMetastasesECS/hn_bl_surg_neck_ln_ecs
+            
+        
+
+    
+    pathologicalTNMStaging:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/pathologicalTNMStaging
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/pathologicalTNMStaging/pathologicalTStage
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/pathologicalTNMStaging/pathologicalNStage
+            
+        
+
+    
+    oarProton:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_paro_r_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_paro_r_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_paro_l_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_paro_l_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_subm_r_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_subm_r_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_subm_l_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_subm_l_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_ext_oc_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_ext_oc_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_pcm_sup_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_pcm_sup_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_pcm_med_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_pcm_med_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_pcm_inf_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_pcm_inf_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_ant_ey_r_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_ant_ey_r_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_ant_ey_l_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_ant_ey_l_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_post_ey_r_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_post_ey_r_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_post_ey_l_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_post_ey_l_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_lacr_r_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_lacr_r_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_lacr_l_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_lacr_l_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_bumu_r_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_bumu_r_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_bumu_l_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_bumu_l_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_mand_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_mand_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_mand_maxd
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_mand_maxdm
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_coch_r_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_coch_r_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_coch_l_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_coch_l_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_supglot_la_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_supglot_la_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_glot_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_glot_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_art_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_art_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_cric_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_cric_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_c_oes_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_c_oes_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_thy_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_thy_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_brn_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_brn_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_brn_maxd
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_brn_maxdm
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_crbr_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_crbr_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_crbr_maxd
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_crbr_maxdm
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_crbl_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_crbl_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_crbl_maxd
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_crbl_maxdm
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_brnst_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_brnst_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_brnst_maxd
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_brnst_maxdm
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_pit_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_pit_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_opt_chi_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_opt_chi_maxd
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_opt_chi_maxdm
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_opt_nv_r_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_opt_nv_r_maxd
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_opt_nv_r_maxdm
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_opt_nv_l_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_opt_nv_l_maxd
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_opt_nv_l_maxdm
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_spine_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_spine_maxd
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_spine_maxdm
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_car_r_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_car_r_maxd
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_car_r_maxdm
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_car_l_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_car_l_maxd
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_car_l_maxdm
+            
+        
+
+    
+    histologyDate:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/histology/histologyDate
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/histology/histologyDate/hn_bl_histo_date
+            
+        
+
+    
+    clinicalTStageV8:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/tnmStagingV8/clinicalTStageV8
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/tnmStagingV8/clinicalTStageV8/hn_bl_tstage_8
+            
+        
+
+    
+    robustOrPTV:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustOrPTV
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustOrPTV/hn_bl_rt_rob_plan
+            
+        
+
+    
+    dermatitisRadiation:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/radiationInducedSideEffects/dermatitisRadiation
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/radiationInducedSideEffects/dermatitisRadiation/hn_bl_tox_dermatitis
+            
+        
+
+    
+    boostTechnique:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/boostTechnique
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/boostTechnique/hn_bl_rt_plan_boost
+            
+        
+
+    
+    imagingType:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/treatment/imagingType
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/treatment/imagingType/hn_bl_rt_imaging
+            
+        
+
+    
+    robustness:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness/robustnesOptTransX
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness/robustnesOptTransY
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness/robustnesOptTransZ
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness/mcRobEvalPerf
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness/mcRobEvalTransMargX
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness/mcRobEvalTransMargY
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness/mcRobEvalTransMargZ
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness/mcRobEvalRangeUncUsed
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness/mcRobEvalRangeUnc
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness/mcRobEvalRangeRotUsed
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness/mcRobEvalRangeRotPitch
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness/mcRobEvalRangeRotRoll
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness/mcRobEvalRangeRotYaw
+            
+        
+
+    
+    planAdaptationStrategy:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/planAdaptationStrategy
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/planAdaptationStrategy/hn_bl_rt_plan_adapt_strat
+            
+        
+
+    
+    imaging:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/imaging
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/imaging/dualEnergyPlanningCT
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/imaging/planningPETCT
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/imaging/planningMRI
+            
+        
+
+    
+    hemiplegia:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/hemiplegia
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/hemiplegia/hn_bl_tox_hemip
+            
+        
+
+    
+    gtvVolume:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/gtvVolume
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/gtvVolume/hn_bl_prep_plan_gtv
+            
+        
+
+    
+    histology:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/histology
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/histology/histologyReport
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/histology/histologyDate
+            
+        
+
+    
+    ptvMargin:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/ptvMargin
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/ptvMargin/ptvMarginX
+            
+        
+
+    
+    headAndNeckCharlsonComorbidityIndex:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/myocardialInfarction
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/heartFailure
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/claudicatioIntermittens
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/cvaOrTIA
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/dementia
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/cOPD
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/connectiveTissueDisease
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/pepticUlcerDisease
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/liverDisease
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/diabetesMellitus
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/diabetesMellitusStatus
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/hemiplegia
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/chronicKidneyDisease
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/previousSolidTumour
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/previousLeukemia
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/previousLymphoma
+            
+        
+
+    
+    liverDisease:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/liverDisease
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/liverDisease/hn_bl_tox_liv_dis
+            
+        
+
+    
+    PETCT:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/preparationProcedure/PETCT
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/preparationProcedure/PETCT/hn_bl_petct
+            
+        
+
+    
+    preparationProcedure:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/preparationProcedure
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/preparationProcedure/cTScan
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/preparationProcedure/PETCT
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/preparationProcedure/MRI
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/preparationProcedure/ultrasound
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/preparationProcedure/sentinelNodeProcedure
+            
+        
+
+    
+    otherTumourSite:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/otherTumourSite
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/otherTumourSite/hn_bl_tumour_site_oth
+            
+        
+
+    
+    cTScan:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/preparationProcedure/cTScan
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/preparationProcedure/cTScan/hn_bl_ct
+            
+        
+
+    
+    procedureDate:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/surgery/procedureDate
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/surgery/procedureDate/hn_bl_surg_tum_date
+            
+        
+
+    
+    radiotherapy:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/treatment
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/radiationInducedSideEffects
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/hn_bl_tox_date_consult
+            
+        
+
+    
+    systemicTreatment:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/systemicTreatment
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/systemicTreatment/hn_bl_systtr
+            
+        
+
+    
+    claudicatioIntermittens:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/claudicatioIntermittens
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/claudicatioIntermittens/hn_bl_tox_per_vas_dis
+            
+        
+
+    
+    additionalTStageV8:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/tnmStagingV8/additionalTStageV8
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/tnmStagingV8/additionalTStageV8/hn_bl_tstage_8_add
+            
+        
+
+    
+    periNeuralGrowth:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/tumourProperties/periNeuralGrowth
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/tumourProperties/periNeuralGrowth/hn_bl_surg_pering
+            
+        
+
+    
+    heartFailure:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/heartFailure
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/heartFailure/hn_bl_tox_heart_fail
+            
+        
+
+    
+    primaryTumourSite:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/primaryTumourSite
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/primaryTumourSite/hn_bl_tumour_site
+            
+        
+
+    
+    mcRobEvalRangeRotPitch:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness/mcRobEvalRangeRotPitch
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness/mcRobEvalRangeRotPitch/hn_bl_rt_rob_eval_rot_pitch
+            
+        
+
+    
+    maximumTumourDiameter:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/tumourProperties/maximumTumourDiameter
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/tumourProperties/maximumTumourDiameter/hn_bl_surg_max_diam
+            
+        
+
+    
+    montecarloUncertainty:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/montecarloUncertainty
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/montecarloUncertainty/hn_bl_rt_mc_unc
+            
+        
+
+    
+    baselineTreatment:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/baselineTreatment
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/baselineTreatment/localRecurrenceTreatment
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/baselineTreatment/regionalRecurrenceTreatment
+            
+        
+
+    
+    imagingTypeOther:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/treatment/imagingTypeOther
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/treatment/imagingTypeOther/hn_bl_rt_imaging_other
+            
+        
+
+    
+    previousLymphoma:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/previousLymphoma
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/previousLymphoma/hn_bl_tox_prev_lymph
+            
+        
+
+    
+    pathologicalTStage:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/pathologicalTNMStaging/pathologicalTStage
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/pathologicalTNMStaging/pathologicalTStage/hn_bl_surg_ptstage
+            
+        
+
+    
+    viralStatus:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/viralStatus
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/viralStatus/p16Status
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/viralStatus/hpvResult
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/viralStatus/ebvStatus
+            
+        
+
+    
+    dysphagia:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/radiationInducedSideEffects/dysphagia
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/radiationInducedSideEffects/dysphagia/hn_bl_tox_dysph
+            
+        
+
+    
+    mcRobEvalTransMargX:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness/mcRobEvalTransMargX
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness/mcRobEvalTransMargX/hn_bl_rt_rob_eval_trans_x
+            
+        
+
+    
+    xerostomia:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/radiationInducedSideEffects/xerostomia
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/radiationInducedSideEffects/xerostomia/hn_bl_tox_xerostomia
+            
+        
+
+    
+    sentinelNodeProcedure:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/preparationProcedure/sentinelNodeProcedure
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/preparationProcedure/sentinelNodeProcedure/hn_bl_sn
+            
+        
+
+    
+    dysphagiaUMCG:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/radiationInducedSideEffects/dysphagiaUMCG
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/radiationInducedSideEffects/dysphagiaUMCG/hn_bl_tox_dysph_umcg
+            
+        
+
+    
+    tumourProperties:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/tumourProperties
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/tumourProperties/surgicalMargins
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/tumourProperties/maximumTumourDiameter
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/tumourProperties/depthOfInfiltration
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/tumourProperties/angioinvasion
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/tumourProperties/periNeuralGrowth
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/tumourProperties/infiltrativeGrowth
+            
+        
+
+    
+    beamAbsorber:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/beamAbsorber
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/beamAbsorber/hn_bl_rt_beam_absorb
+            
+        
+
+    
+    robustnesOptTransY:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness/robustnesOptTransY
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness/robustnesOptTransY/hn_bl_rt_rob_op_trans_y
+            
+        
+
+    
+    localRecurrenceTreatment:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/baselineTreatment/localRecurrenceTreatment
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/baselineTreatment/localRecurrenceTreatment/hn_bl_treatm_loc_recur
+            
+        
+
+    
+    radiationInducedSideEffects:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/radiationInducedSideEffects
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/radiationInducedSideEffects/xerostomia
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/radiationInducedSideEffects/dysphagia
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/radiationInducedSideEffects/dysphagiaUMCG
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/radiationInducedSideEffects/oralMucositis
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/radiationInducedSideEffects/mucosaRTOG
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/radiationInducedSideEffects/dermatitisRadiation
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/radiationInducedSideEffects/osteoRadioNecrosis
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/radiationInducedSideEffects/softTissueNecrosis
+            
+        
+
+    
+    numberOfLymphNodesMetastases:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/surgery/headAndNeckSurgery/numberOfLymphNodesMetastases
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/surgery/headAndNeckSurgery/numberOfLymphNodesMetastases/hn_bl_surg_neck_lnmeta
+            
+        
+
+    
+    hpvResult:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/viralStatus/hpvResult
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/viralStatus/hpvResult/hn_bl_hpv
+            
+        
+
+    
+    dosePlanning:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/imaging
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustOrPTV
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/ptvMargin
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/hn_bl_dose_high_dose
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/hn_bl_dose_high_fr_dose
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/hn_bl_dose_high_fr_n
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/hn_bl_dose_inter_fr_dose
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/hn_bl_dose_inter_fr_n
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/hn_bl_dose_low_fr_dose
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/hn_bl_dose_low_fr_n
+            
+        
+
+    
+    numberOfVolumeRepaintings:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/numberOfVolumeRepaintings
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/numberOfVolumeRepaintings/hn_bl_rt_repaint_nr_volume
+            
+        
+
+    
+    ultrasound:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/preparationProcedure/ultrasound
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/preparationProcedure/ultrasound/hn_bl_ultras
+            
+        
+
+    
+    depthOfInfiltration:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/tumourProperties/depthOfInfiltration
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/tumourProperties/depthOfInfiltration/hn_bl_surg_depth_infil
+            
+        
+
+    
+    myocardialInfarction:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/myocardialInfarction
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/myocardialInfarction/hn_bl_tox_mi
+            
+        
+
+    
+    cOPD:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/cOPD
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/cOPD/hn_bl_tox_copd
+            
+        
+
+    
+    diabetesMellitusStatus:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/diabetesMellitusStatus
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/diabetesMellitusStatus/hn_bl_tox_dm_status
+            
+        
+
+    
+    dateOfSurgeryOfTheNeck:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/surgery/headAndNeckSurgery/dateOfSurgeryOfTheNeck
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/surgery/headAndNeckSurgery/dateOfSurgeryOfTheNeck/hn_bl_surg_neck_date
+            
+        
+
+    
+    surgicalMargins:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/tumourProperties/surgicalMargins
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/tumourProperties/surgicalMargins/hn_bl_surg_surg_marg
+            
+        
+
+    
+    protonPlanning:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton
+            
+        
+
+    
+    cvaOrTIA:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/cvaOrTIA
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/cvaOrTIA/hn_bl_tox_cva_tia
+            
+        
+
+    
+    pepticUlcerDisease:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/pepticUlcerDisease
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/pepticUlcerDisease/hn_bl_tox_pep_ulc_dis
+            
+        
+
+    
+    numberofIsocs:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/numberofIsocs
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/numberofIsocs/hn_bl_rt_nr_isoc
+            
+        
+
+    
+    oarPhoton:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_paro_r_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_paro_r_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_paro_l_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_paro_l_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_subm_r_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_subm_r_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_subm_l_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_subm_l_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_ext_oc_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_ext_oc_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_pcm_sup_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_pcm_sup_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_pcm_med_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_pcm_med_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_pcm_inf_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_pcm_inf_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_ant_ey_r_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_ant_ey_r_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_ant_ey_l_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_ant_ey_l_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_post_ey_r_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_post_ey_r_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_post_ey_l_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_post_ey_l_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_lacr_r_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_lacr_r_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_lacr_l_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_lacr_l_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_bumu_r_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_bumu_r_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_bumu_l_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_bumu_l_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_mand_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_mand_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_mand_maxd
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_coch_r_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_coch_r_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_coch_l_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_coch_l_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_supglot_la_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_supglot_la_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_glot_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_glot_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_art_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_art_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_cric_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_cric_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_c_oes_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_c_oes_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_thy_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_thy_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_brn_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_brn_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_brn_maxd
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_crbr_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_crbr_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_crbr_maxd
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_crbl_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_crbl_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_crbl_maxd
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_brnst_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_brnst_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_brnst_maxd
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_pit_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_pit_md
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_opt_chi_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_opt_chi_maxd
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_opt_nv_r_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_opt_nv_r_maxd
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_opt_nv_l_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_opt_nv_l_maxd
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_spine_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_spine_maxd
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_car_r_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_car_r_maxd
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_car_l_use
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_car_l_maxd
+            
+        
+
+    
+    clinicalNStageV8:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/tnmStagingV8/clinicalNStageV8
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/tnmStagingV8/clinicalNStageV8/hn_bl_nstage_8
+            
+        
+
+    
+    planningPETCT:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/imaging/planningPETCT
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/imaging/planningPETCT/hn_bl_prep_plan_petct
+            
+        
+
+    
+    numberOfLayerRepaintings:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/numberOfLayerRepaintings
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/numberOfLayerRepaintings/hn_bl_rt_repaint_nr_layer
+            
+        
+
+    
+    mucosaRTOG:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/radiationInducedSideEffects/mucosaRTOG
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/radiationInducedSideEffects/mucosaRTOG/hn_bl_tox_mucosa_rtog
+            
+        
+
+    
+    ptvMarginX:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/ptvMargin/ptvMarginX
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/ptvMargin/ptvMarginX/hn_bl_rt_ptv_marg_x
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/ptvMargin/ptvMarginX/hn_bl_rt_ptv_marg_y
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/ptvMargin/ptvMarginX/hn_bl_rt_ptv_marg_z
+            
+        
+
+    
+    clinicalNStageV7:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/tnmStagingV7/clinicalNStageV7
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/tnmStagingV7/clinicalNStageV7/hn_bl_nstage_7
+            
+        
+
+    
+    diabetesMellitus:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/diabetesMellitus
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/diabetesMellitus/hn_bl_tox_dm
+            
+        
+
+    
+    chronicKidneyDisease:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/chronicKidneyDisease
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/chronicKidneyDisease/hn_bl_tox_ckd
+            
+        
+
+    
+    tnmStagingV7:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/tnmStagingV7
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/tnmStagingV7/clinicalTStageV7
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/tnmStagingV7/additionalTStageV7
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/tnmStagingV7/clinicalNStageV7
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/tnmStagingV7/clinicalMStageV7
+            
+        
+
+    
+    clinicalMStageV7:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/tnmStagingV7/clinicalMStageV7
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/tnmStagingV7/clinicalMStageV7/hn_bl_mstage_7
+            
+        
+
+    
+    angioinvasion:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/tumourProperties/angioinvasion
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/tumourProperties/angioinvasion/hn_bl_surg_angio
+            
+        
+
+    
+    infiltrativeGrowth:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/tumourProperties/infiltrativeGrowth
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/tumourProperties/infiltrativeGrowth/hn_bl_surg_infltr_gr
+            
+        
+
+    
+    tnmStaging:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/tnmStagingV7
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/tnmStagingV8
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/pathologicalTNMStaging
+            
+        
+
+    
+    softTissueNecrosis:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/radiationInducedSideEffects/softTissueNecrosis
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/radiationInducedSideEffects/softTissueNecrosis/hn_bl_tox_softtnecr
+            
+        
+
+    
+    pathologicalNStage:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/pathologicalTNMStaging/pathologicalNStage
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/pathologicalTNMStaging/pathologicalNStage/hn_bl_surg_neck_nstage
+            
+        
+
+    
+    headAndNeckSurgery:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/surgery/headAndNeckSurgery
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/surgery/headAndNeckSurgery/dateOfSurgeryOfTheNeck
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/surgery/headAndNeckSurgery/numberOfLymphNodesPathology
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/surgery/headAndNeckSurgery/numberOfLymphNodesMetastases
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/surgery/headAndNeckSurgery/numberOfLymphNodesMetastasesECS
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/surgery/headAndNeckSurgery/hn_bl_surg_neck
+            
+        
+
+    
+    treatmentTechnique:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/treatmentTechnique
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/treatmentTechnique/hn_bl_rt_treatment
+            
+        
+
+    
+    planParameters:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/numberofIsocs
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/doseEngine
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/montecarloUncertainty
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/treatmentTechnique
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/radTechniquePhotons
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/radTechniqueProtons
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/repaintingType
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/numberOfVolumeRepaintings
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/numberOfLayerRepaintings
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/beamAbsorber
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/planAdaptationStrategy
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/boostTechnique
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/targetVolume
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/gtvVolume
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/ctv1Volume
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/ctv2Volume
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/ctv3Volume
+            
+        
+
+    
+    mcRobEvalPerf:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness/mcRobEvalPerf
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness/mcRobEvalPerf/hn_bl_rt_rob_eval
+            
+        
+
+    
+    targetVolume:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/targetVolume
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/targetVolume/hn_bl_prep_plan_tarvol
+            
+        
+
+    
+    dualEnergyPlanningCT:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/imaging/dualEnergyPlanningCT
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/imaging/dualEnergyPlanningCT/hn_bl_prep_plan_dual_ct
+            
+        
+
+    
+    clinicalTStageV7:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/tnmStagingV7/clinicalTStageV7
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/tnmStagingV7/clinicalTStageV7/hn_bl_tstage_7
+            
+        
+
+    
+    positionCorrectionType:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/treatment/positionCorrectionType
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/treatment/positionCorrectionType/hn_bl_rt_pos_cor
+            
+        
+
+    
+    mcRobEvalRangeUncUsed:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness/mcRobEvalRangeUncUsed
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness/mcRobEvalRangeUncUsed/hn_bl_rt_rob_eval_range_unc_use
+            
+        
+
+    
+    weightLoss3MonthsBeforeRt:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/clinicalVariables/weightLoss3MonthsBeforeRt
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/clinicalVariables/weightLoss3MonthsBeforeRt/hn_bl_weight_loss
+            
+        
+
+    
+    reirradiation:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/reirradiation
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/reirradiation/hn_bl_reirr
+            
+        
+
+    
+    histologyReport:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/histology/histologyReport
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/neoplasm/histology/histologyReport/hn_bl_histo
+            
+        
+
+    
+    connectiveTissueDisease:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/connectiveTissueDisease
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/connectiveTissueDisease/hn_bl_tox_con_tis_dis
+            
+        
+
+    
+    mcRobEvalTransMargZ:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness/mcRobEvalTransMargZ
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness/mcRobEvalTransMargZ/hn_bl_rt_rob_eval_trans_z
+            
+        
+
+    
+    dementia:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/dementia
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/dementia/hn_bl_tox_demen
+            
+        
+
+    
+    MRI:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/preparationProcedure/MRI
+        
+        po:
+
+            
+            - p: "protrait:has"
+              o: protrait:PatientID/$(hn_bl_id)/preparationProcedure/MRI/hn_bl_mri
+            
+        
+
+    
+    hn_bl_weight_loss:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/clinicalVariables/weightLoss3MonthsBeforeRt/hn_bl_weight_loss
+
+        po:
+            - [a,ncit:C138908]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_weight_loss)"
+
+    hn_bl_reirr:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/reirradiation/hn_bl_reirr
+
+        po:
+            - [a,ncit:C192247]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_reirr)"
+
+    hn_bl_ct:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/preparationProcedure/cTScan/hn_bl_ct
+
+        po:
+            - [a,ncit:C17204]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_ct)"
+
+    hn_bl_petct:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/preparationProcedure/PETCT/hn_bl_petct
+
+        po:
+            - [a,ncit:C103512]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_petct)"
+
+    hn_bl_mri:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/preparationProcedure/MRI/hn_bl_mri
+
+        po:
+            - [a,ncit:C16809]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_mri)"
+
+    hn_bl_ultras:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/preparationProcedure/ultrasound/hn_bl_ultras
+
+        po:
+            - [a,ncit:C17230]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_ultras)"
+
+    hn_bl_sn:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/preparationProcedure/sentinelNodeProcedure/hn_bl_sn
+
+        po:
+            - [a,ncit:C15667]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_sn)"
+
+    hn_bl_tumour_site:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/primaryTumourSite/hn_bl_tumour_site
+
+        po:
+            - [a,ncit:C179451]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_tumour_site)"
+
+    hn_bl_tumour_site_oth:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/otherTumourSite/hn_bl_tumour_site_oth
+
+        po:
+            - [a,ncit:C160159]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_tumour_site_oth)"
+
+    hn_bl_histo:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/histology/histologyReport/hn_bl_histo
+
+        po:
+            - [a,ncit:C28277]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_histo)"
+
+    hn_bl_histo_date:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/histology/histologyDate/hn_bl_histo_date
+
+        po:
+            - [a,ncit:C25164]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_histo_date)"
+
+    hn_bl_tstage_7:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/tnmStagingV7/clinicalTStageV7/hn_bl_tstage_7
+
+        po:
+            - [a,ncit:C141696]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_tstage_7)"
+
+    hn_bl_tstage_7_add:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/tnmStagingV7/additionalTStageV7/hn_bl_tstage_7_add
+
+        po:
+            - [a,ncit:C141696]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_tstage_7_add)"
+
+    hn_bl_nstage_7:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/tnmStagingV7/clinicalNStageV7/hn_bl_nstage_7
+
+        po:
+            - [a,ncit:C141697]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_nstage_7)"
+
+    hn_bl_mstage_7:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/tnmStagingV7/clinicalMStageV7/hn_bl_mstage_7
+
+        po:
+            - [a,ncit:C141698]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_mstage_7)"
+
+    hn_bl_tstage_8:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/tnmStagingV8/clinicalTStageV8/hn_bl_tstage_8
+
+        po:
+            - [a,ncit:C177635]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_tstage_8)"
+
+    hn_bl_tstage_8_add:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/tnmStagingV8/additionalTStageV8/hn_bl_tstage_8_add
+
+        po:
+            - [a,ncit:C177635]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_tstage_8_add)"
+
+    hn_bl_nstage_8:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/tnmStagingV8/clinicalNStageV8/hn_bl_nstage_8
+
+        po:
+            - [a,ncit:C177611]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_nstage_8)"
+
+    hn_bl_mstage_8:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/tnmStagingV8/clinicalMStageV8/hn_bl_mstage_8
+
+        po:
+            - [a,ncit:C177606]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_mstage_8)"
+
+    hn_bl_p16:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/viralStatus/p16Status/hn_bl_p16
+
+        po:
+            - [a,ncit:C162803]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_p16)"
+
+    hn_bl_hpv:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/viralStatus/hpvResult/hn_bl_hpv
+
+        po:
+            - [a,ncit:C162803]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_hpv)"
+
+    hn_bl_ebv:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/viralStatus/ebvStatus/hn_bl_ebv
+
+        po:
+            - [a,ncit:C14204]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_ebv)"
+
+    hn_bl_systtr:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/systemicTreatment/hn_bl_systtr
+
+        po:
+            - [a,ncit:C15698]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_systtr)"
+
+    hn_bl_surg_tumour:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/surgery/hn_bl_surg_tumour
+
+        po:
+            - [a,ncit:C157740]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_surg_tumour)"
+
+    hn_bl_surg_tum_date:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/surgery/procedureDate/hn_bl_surg_tum_date
+
+        po:
+            - [a,ncit:C117538]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_surg_tum_date)"
+
+    hn_bl_surg_ptstage:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/pathologicalTNMStaging/pathologicalTStage/hn_bl_surg_ptstage
+
+        po:
+            - [a,ncit:C25728]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_surg_ptstage)"
+
+    hn_bl_surg_surg_marg:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/tumourProperties/surgicalMargins/hn_bl_surg_surg_marg
+
+        po:
+            - [a,ncit:C41227]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_surg_surg_marg)"
+
+    hn_bl_surg_max_diam:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/tumourProperties/maximumTumourDiameter/hn_bl_surg_max_diam
+
+        po:
+            - [a,ncit:C96684]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_surg_max_diam)"
+
+    hn_bl_surg_depth_infil:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/tumourProperties/depthOfInfiltration/hn_bl_surg_depth_infil
+
+        po:
+            - [a,ncit:C28491]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_surg_depth_infil)"
+
+    hn_bl_surg_angio:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/tumourProperties/angioinvasion/hn_bl_surg_angio
+
+        po:
+            - [a,ncit:C39589]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_surg_angio)"
+
+    hn_bl_surg_pering:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/tumourProperties/periNeuralGrowth/hn_bl_surg_pering
+
+        po:
+            - [a,ncit:C48260]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_surg_pering)"
+
+    hn_bl_surg_infltr_gr:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/tumourProperties/infiltrativeGrowth/hn_bl_surg_infltr_gr
+
+        po:
+            - [a,ncit:C41453]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_surg_infltr_gr)"
+
+    hn_bl_surg_neck:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/surgery/headAndNeckSurgery/hn_bl_surg_neck
+
+        po:
+            - [a,ncit:C157871]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_surg_neck)"
+
+    hn_bl_surg_neck_date:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/surgery/headAndNeckSurgery/dateOfSurgeryOfTheNeck/hn_bl_surg_neck_date
+
+        po:
+            - [a,ncit:C80454]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_surg_neck_date)"
+
+    hn_bl_surg_neck_nstage:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/neoplasm/tnmStaging/pathologicalTNMStaging/pathologicalNStage/hn_bl_surg_neck_nstage
+
+        po:
+            - [a,ncit:C25580]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_surg_neck_nstage)"
+
+    hn_bl_surg_neck_ln_path:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/surgery/headAndNeckSurgery/numberOfLymphNodesPathology/hn_bl_surg_neck_ln_path
+
+        po:
+            - [a,ncit:P100042]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_surg_neck_ln_path)"
+
+    hn_bl_surg_neck_lnmeta:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/surgery/headAndNeckSurgery/numberOfLymphNodesMetastases/hn_bl_surg_neck_lnmeta
+
+        po:
+            - [a,ncit:C147904]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_surg_neck_lnmeta)"
+
+    hn_bl_surg_neck_ln_ecs:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/surgery/headAndNeckSurgery/numberOfLymphNodesMetastasesECS/hn_bl_surg_neck_ln_ecs
+
+        po:
+            - [a,ncit:C184702]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_surg_neck_ln_ecs)"
+
+    hn_bl_rt_rob_plan:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustOrPTV/hn_bl_rt_rob_plan
+
+        po:
+            - [a,ncit:C82606]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_rt_rob_plan)"
+
+    hn_bl_rt_rob_op_trans_x:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness/robustnesOptTransX/hn_bl_rt_rob_op_trans_x
+
+        po:
+            - [a,ncit:C192344]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_rt_rob_op_trans_x)"
+
+    hn_bl_rt_rob_op_trans_y:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness/robustnesOptTransY/hn_bl_rt_rob_op_trans_y
+
+        po:
+            - [a,ncit:C192344]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_rt_rob_op_trans_y)"
+
+    hn_bl_rt_rob_op_trans_z:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/robustness/robustnesOptTransZ/hn_bl_rt_rob_op_trans_z
+
+        po:
+            - [a,ncit:C192344]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_rt_rob_op_trans_z)"
+
+    hn_bl_rt_ptv_marg_x:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/ptvMargin/ptvMarginX/hn_bl_rt_ptv_marg_x
+
+        po:
+            - [a,roo:C100071]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_rt_ptv_marg_x)"
+
+    hn_bl_rt_ptv_marg_y:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/ptvMargin/ptvMarginX/hn_bl_rt_ptv_marg_y
+
+        po:
+            - [a,roo:C100071]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_rt_ptv_marg_y)"
+
+    hn_bl_rt_ptv_marg_z:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/ptvMargin/ptvMarginX/hn_bl_rt_ptv_marg_z
+
+        po:
+            - [a,roo:C100071]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_rt_ptv_marg_z)"
+
+    hn_bl_rt_imaging:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/treatment/imagingType/hn_bl_rt_imaging
+
+        po:
+            - [a,ncit:C17369]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_rt_imaging)"
+
+    hn_bl_rt_imaging_other:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/treatment/imagingTypeOther/hn_bl_rt_imaging_other
+
+        po:
+            - [a,ncit:C17369]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_rt_imaging_other)"
+
+    hn_bl_rt_pos_cor:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/treatment/positionCorrectionType/hn_bl_rt_pos_cor
+
+        po:
+            - [a,ncit:C54657]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_rt_pos_cor)"
+
+    hn_bl_rt_nr_isoc:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/numberofIsocs/hn_bl_rt_nr_isoc
+
+        po:
+            - [a,ncit:C54651]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_rt_nr_isoc)"
+
+    hn_bl_rt_dose_eng:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/doseEngine/hn_bl_rt_dose_eng
+
+        po:
+            - [a,ncit:C192599]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_rt_dose_eng)"
+
+    hn_bl_rt_mc_unc:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/montecarloUncertainty/hn_bl_rt_mc_unc
+
+        po:
+            - [a,ncit:C94936]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_rt_mc_unc)"
+
+    hn_bl_rt_treatment:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/treatmentTechnique/hn_bl_rt_treatment
+
+        po:
+            - [a,ncit:C25218]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_rt_treatment)"
+
+    hn_bl_rt_rt_techn_bl_pho:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/radTechniquePhotons/hn_bl_rt_rt_techn_bl_pho
+
+        po:
+            - [a,ncit:C104914]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_rt_rt_techn_bl_pho)"
+
+    hn_bl_rt_rt_techn_bl_pro:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/radTechniqueProtons/hn_bl_rt_rt_techn_bl_pro
+
+        po:
+            - [a,ncit:C66897]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_rt_rt_techn_bl_pro)"
+
+    hn_bl_rt_repaint:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/repaintingType/hn_bl_rt_repaint
+
+        po:
+            - [a,ncit:CL192249]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_rt_repaint)"
+
+    hn_bl_rt_repaint_nr_volume:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/numberOfVolumeRepaintings/hn_bl_rt_repaint_nr_volume
+
+        po:
+            - [a,ncit:C192311]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_rt_repaint_nr_volume)"
+
+    hn_bl_rt_repaint_nr_layer:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/numberOfLayerRepaintings/hn_bl_rt_repaint_nr_layer
+
+        po:
+            - [a,ncit:C192308]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_rt_repaint_nr_layer)"
+
+    hn_bl_rt_plan_adapt_strat:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/planAdaptationStrategy/hn_bl_rt_plan_adapt_strat
+
+        po:
+            - [a,ncit:C192235]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_rt_plan_adapt_strat)"
+
+    hn_bl_rt_plan_boost:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/boostTechnique/hn_bl_rt_plan_boost
+
+        po:
+            - [a,ncit:C137812]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_rt_plan_boost)"
+
+    hn_bl_prep_plan_tarvol:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/targetVolume/hn_bl_prep_plan_tarvol
+
+        po:
+            - [a,ncit:C192478]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_prep_plan_tarvol)"
+
+    hn_bl_prep_plan_gtv:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/gtvVolume/hn_bl_prep_plan_gtv
+
+        po:
+            - [a,ncit:C112913]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_prep_plan_gtv)"
+
+    hn_bl_prep_plan_ctv1:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/ctv1Volume/hn_bl_prep_plan_ctv1
+
+        po:
+            - [a,roo:C100590]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_prep_plan_ctv1)"
+
+    hn_bl_prep_plan_ctv2:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/ctv2Volume/hn_bl_prep_plan_ctv2
+
+        po:
+            - [a,roo:C100590]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_prep_plan_ctv2)"
+
+    hn_bl_prep_plan_ctv3:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/planParameters/ctv3Volume/hn_bl_prep_plan_ctv3
+
+        po:
+            - [a,roo:C100590]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_prep_plan_ctv3)"
+
+    hn_bl_therrt_oar_paro_r_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_paro_r_use
+
+        po:
+            - [a,roo:C100517]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_paro_r_use)"
+
+    hn_bl_therrt_oar_paro_r_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_paro_r_md
+
+        po:
+            - [a,roo:C192514]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_paro_r_md)"
+
+    hn_bl_therrt_oar_paro_l_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_paro_l_use
+
+        po:
+            - [a,roo:C100516]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_paro_l_use)"
+
+    hn_bl_therrt_oar_paro_l_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_paro_l_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_paro_l_md)"
+
+    hn_bl_therrt_oar_subm_r_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_subm_r_use
+
+        po:
+            - [a,roo:C100548]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_subm_r_use)"
+
+    hn_bl_therrt_oar_subm_r_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_subm_r_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_subm_r_md)"
+
+    hn_bl_therrt_oar_subm_l_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_subm_l_use
+
+        po:
+            - [a,roo:C100547]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_subm_l_use)"
+
+    hn_bl_therrt_oar_subm_l_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_subm_l_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_subm_l_md)"
+
+    hn_bl_therrt_oar_ext_oc_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_ext_oc_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_ext_oc_md)"
+
+    hn_bl_therrt_oar_pcm_sup_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_pcm_sup_use
+
+        po:
+            - [a,ncit:C33672]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_pcm_sup_use)"
+
+    hn_bl_therrt_oar_pcm_sup_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_pcm_sup_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_pcm_sup_md)"
+
+    hn_bl_therrt_oar_pcm_med_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_pcm_med_use
+
+        po:
+            - [a,ncit:C33115]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_pcm_med_use)"
+
+    hn_bl_therrt_oar_pcm_med_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_pcm_med_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_pcm_med_md)"
+
+    hn_bl_therrt_oar_pcm_inf_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_pcm_inf_use
+
+        po:
+            - [a,ncit:C32401]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_pcm_inf_use)"
+
+    hn_bl_therrt_oar_pcm_inf_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_pcm_inf_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_pcm_inf_md)"
+
+    hn_bl_therrt_oar_ant_ey_r_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_ant_ey_r_use
+
+        po:
+            - [a,ncit:C25228]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_ant_ey_r_use)"
+
+    hn_bl_therrt_oar_ant_ey_r_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_ant_ey_r_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_ant_ey_r_md)"
+
+    hn_bl_therrt_oar_ant_ey_l_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_ant_ey_l_use
+
+        po:
+            - [a,ncit:C25229]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_ant_ey_l_use)"
+
+    hn_bl_therrt_oar_ant_ey_l_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_ant_ey_l_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_ant_ey_l_md)"
+
+    hn_bl_therrt_oar_post_ey_r_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_post_ey_r_use
+
+        po:
+            - [a,ncit:C25228]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_post_ey_r_use)"
+
+    hn_bl_therrt_oar_post_ey_r_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_post_ey_r_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_post_ey_r_md)"
+
+    hn_bl_therrt_oar_post_ey_l_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_post_ey_l_use
+
+        po:
+            - [a,ncit:C25229]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_post_ey_l_use)"
+
+    hn_bl_therrt_oar_post_ey_l_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_post_ey_l_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_post_ey_l_md)"
+
+    hn_bl_therrt_oar_lacr_r_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_lacr_r_use
+
+        po:
+            - [a,roo:C25228]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_lacr_r_use)"
+
+    hn_bl_therrt_oar_lacr_r_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_lacr_r_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_lacr_r_md)"
+
+    hn_bl_therrt_oar_lacr_l_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_lacr_l_use
+
+        po:
+            - [a,roo:C25228]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_lacr_l_use)"
+
+    hn_bl_therrt_oar_lacr_l_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_lacr_l_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_lacr_l_md)"
+
+    hn_bl_therrt_oar_bumu_r_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_bumu_r_use
+
+        po:
+            - [a,ncit:C12505]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_bumu_r_use)"
+
+    hn_bl_therrt_oar_bumu_r_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_bumu_r_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_bumu_r_md)"
+
+    hn_bl_therrt_oar_bumu_l_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_bumu_l_use
+
+        po:
+            - [a,ncit:C12505]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_bumu_l_use)"
+
+    hn_bl_therrt_oar_bumu_l_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_bumu_l_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_bumu_l_md)"
+
+    hn_bl_therrt_oar_mand_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_mand_use
+
+        po:
+            - [a,roo:C100140]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_mand_use)"
+
+    hn_bl_therrt_oar_mand_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_mand_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_mand_md)"
+
+    hn_bl_therrt_oar_mand_maxd:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_mand_maxd
+
+        po:
+            - [a,roo:C100366]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_mand_maxd)"
+
+    hn_bl_therrt_oar_mand_maxdm:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_mand_maxdm
+
+        po:
+            - [a,ncit:C94932]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_mand_maxdm)"
+
+    hn_bl_therrt_oar_coch_r_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_coch_r_use
+
+        po:
+            - [a,roo:C100485]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_coch_r_use)"
+
+    hn_bl_therrt_oar_coch_r_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_coch_r_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_coch_r_md)"
+
+    hn_bl_therrt_oar_coch_l_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_coch_l_use
+
+        po:
+            - [a,roo:C100484]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_coch_l_use)"
+
+    hn_bl_therrt_oar_coch_l_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_coch_l_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_coch_l_md)"
+
+    hn_bl_therrt_oar_supglot_la_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_supglot_la_use
+
+        po:
+            - [a,ncit:C12279]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_supglot_la_use)"
+
+    hn_bl_therrt_oar_supglot_la_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_supglot_la_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_supglot_la_md)"
+
+    hn_bl_therrt_oar_glot_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_glot_use
+
+        po:
+            - [a,roo:C100127]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_glot_use)"
+
+    hn_bl_therrt_oar_glot_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_glot_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_glot_md)"
+
+    hn_bl_therrt_oar_art_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_art_use
+
+        po:
+            - [a,ncit:C32148]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_art_use)"
+
+    hn_bl_therrt_oar_art_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_art_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_art_md)"
+
+    hn_bl_therrt_oar_cric_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_cric_use
+
+        po:
+            - [a,ncit:C33836]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_cric_use)"
+
+    hn_bl_therrt_oar_cric_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_cric_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_cric_md)"
+
+    hn_bl_therrt_oar_c_oes_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_c_oes_use
+
+        po:
+            - [a,roo:C100116]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_c_oes_use)"
+
+    hn_bl_therrt_oar_c_oes_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_c_oes_md
+
+        po:
+            - [a,roo:C100363]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_c_oes_md)"
+
+    hn_bl_therrt_oar_thy_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_thy_use
+
+        po:
+            - [a,roo:C100177]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_thy_use)"
+
+    hn_bl_therrt_oar_thy_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_thy_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_thy_md)"
+
+    hn_bl_therrt_oar_brn_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_brn_use
+
+        po:
+            - [a,roo:C100096]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_brn_use)"
+
+    hn_bl_therrt_oar_brn_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_brn_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_brn_md)"
+
+    hn_bl_therrt_oar_brn_maxd:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_brn_maxd
+
+        po:
+            - [a,roo:C100366]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_brn_maxd)"
+
+    hn_bl_therrt_oar_brn_maxdm:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_brn_maxdm
+
+        po:
+            - [a,ncit:C94932]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_brn_maxdm)"
+
+    hn_bl_therrt_oar_crbr_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_crbr_use
+
+        po:
+            - [a,roo:C100104]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_crbr_use)"
+
+    hn_bl_therrt_oar_crbr_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_crbr_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_crbr_md)"
+
+    hn_bl_therrt_oar_crbr_maxd:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_crbr_maxd
+
+        po:
+            - [a,roo:C100366]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_crbr_maxd)"
+
+    hn_bl_therrt_oar_crbr_maxdm:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_crbr_maxdm
+
+        po:
+            - [a,ncit:C94932]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_crbr_maxdm)"
+
+    hn_bl_therrt_oar_crbl_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_crbl_use
+
+        po:
+            - [a,ncit:C100103]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_crbl_use)"
+
+    hn_bl_therrt_oar_crbl_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_crbl_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_crbl_md)"
+
+    hn_bl_therrt_oar_crbl_maxd:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_crbl_maxd
+
+        po:
+            - [a,roo:C100366]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_crbl_maxd)"
+
+    hn_bl_therrt_oar_crbl_maxdm:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_crbl_maxdm
+
+        po:
+            - [a,ncit:C94932]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_crbl_maxdm)"
+
+    hn_bl_therrt_oar_brnst_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_brnst_use
+
+        po:
+            - [a,roo:C100097]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_brnst_use)"
+
+    hn_bl_therrt_oar_brnst_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_brnst_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_brnst_md)"
+
+    hn_bl_therrt_oar_brnst_maxd:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_brnst_maxd
+
+        po:
+            - [a,roo:C100366]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_brnst_maxd)"
+
+    hn_bl_therrt_oar_brnst_maxdm:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_brnst_maxdm
+
+        po:
+            - [a,ncit:C94932]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_brnst_maxdm)"
+
+    hn_bl_therrt_oar_pit_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_pit_use
+
+        po:
+            - [a,roo:C100159]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_pit_use)"
+
+    hn_bl_therrt_oar_pit_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_pit_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_pit_md)"
+
+    hn_bl_therrt_oar_opt_chi_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_opt_chi_use
+
+        po:
+            - [a,roo:C100105]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_opt_chi_use)"
+
+    hn_bl_therrt_oar_opt_chi_maxd:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_opt_chi_maxd
+
+        po:
+            - [a,roo:C100366]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_opt_chi_maxd)"
+
+    hn_bl_therrt_oar_opt_chi_maxdm:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_opt_chi_maxdm
+
+        po:
+            - [a,ncit:C94932]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_opt_chi_maxdm)"
+
+    hn_bl_therrt_oar_opt_nv_r_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_opt_nv_r_use
+
+        po:
+            - [a,roo:C100511]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_opt_nv_r_use)"
+
+    hn_bl_therrt_oar_opt_nv_r_maxd:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_opt_nv_r_maxd
+
+        po:
+            - [a,roo:C100366]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_opt_nv_r_maxd)"
+
+    hn_bl_therrt_oar_opt_nv_r_maxdm:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_opt_nv_r_maxdm
+
+        po:
+            - [a,ncit:C94932]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_opt_nv_r_maxdm)"
+
+    hn_bl_therrt_oar_opt_nv_l_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_opt_nv_l_use
+
+        po:
+            - [a,roo:C100510]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_opt_nv_l_use)"
+
+    hn_bl_therrt_oar_opt_nv_l_maxd:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_opt_nv_l_maxd
+
+        po:
+            - [a,roo:C100366]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_opt_nv_l_maxd)"
+
+    hn_bl_therrt_oar_opt_nv_l_maxdm:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_opt_nv_l_maxdm
+
+        po:
+            - [a,ncit:C94932]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_opt_nv_l_maxdm)"
+
+    hn_bl_therrt_oar_spine_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_spine_use
+
+        po:
+            - [a,roo:C100170]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_spine_use)"
+
+    hn_bl_therrt_oar_spine_maxd:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_spine_maxd
+
+        po:
+            - [a,roo:C100366]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_spine_maxd)"
+
+    hn_bl_therrt_oar_spine_maxdm:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_spine_maxdm
+
+        po:
+            - [a,ncit:C94932]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_spine_maxdm)"
+
+    hn_bl_therrt_oar_car_r_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_car_r_use
+
+        po:
+            - [a,roo:C100459]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_car_r_use)"
+
+    hn_bl_therrt_oar_car_r_maxd:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_car_r_maxd
+
+        po:
+            - [a,roo:C100366]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_car_r_maxd)"
+
+    hn_bl_therrt_oar_car_r_maxdm:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_car_r_maxdm
+
+        po:
+            - [a,ncit:C94932]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_car_r_maxdm)"
+
+    hn_bl_therrt_oar_car_l_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_car_l_use
+
+        po:
+            - [a,roo:C100460]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_car_l_use)"
+
+    hn_bl_therrt_oar_car_l_maxd:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_car_l_maxd
+
+        po:
+            - [a,roo:C100366]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_car_l_maxd)"
+
+    hn_bl_therrt_oar_car_l_maxdm:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/protonPlanning/oarProton/hn_bl_therrt_oar_car_l_maxdm
+
+        po:
+            - [a,ncit:C94932]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_oar_car_l_maxdm)"
+
+    hn_bl_therrt_ph_oar_paro_r_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_paro_r_use
+
+        po:
+            - [a,roo:C100517]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_paro_r_use)"
+
+    hn_bl_therrt_ph_oar_paro_r_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_paro_r_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_paro_r_md)"
+
+    hn_bl_therrt_ph_oar_paro_l_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_paro_l_use
+
+        po:
+            - [a,roo:C100516]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_paro_l_use)"
+
+    hn_bl_therrt_ph_oar_paro_l_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_paro_l_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_paro_l_md)"
+
+    hn_bl_therrt_ph_oar_subm_r_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_subm_r_use
+
+        po:
+            - [a,roo:C100548]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_subm_r_use)"
+
+    hn_bl_therrt_ph_oar_subm_r_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_subm_r_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_subm_r_md)"
+
+    hn_bl_therrt_ph_oar_subm_l_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_subm_l_use
+
+        po:
+            - [a,roo:C100547]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_subm_l_use)"
+
+    hn_bl_therrt_ph_oar_subm_l_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_subm_l_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_subm_l_md)"
+
+    hn_bl_therrt_ph_oar_ext_oc_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_ext_oc_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_ext_oc_md)"
+
+    hn_bl_therrt_ph_oar_pcm_sup_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_pcm_sup_use
+
+        po:
+            - [a,ncit:C33672]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_pcm_sup_use)"
+
+    hn_bl_therrt_ph_oar_pcm_sup_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_pcm_sup_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_pcm_sup_md)"
+
+    hn_bl_therrt_ph_oar_pcm_med_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_pcm_med_use
+
+        po:
+            - [a,ncit:C33115]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_pcm_med_use)"
+
+    hn_bl_therrt_ph_oar_pcm_med_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_pcm_med_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_pcm_med_md)"
+
+    hn_bl_therrt_ph_oar_pcm_inf_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_pcm_inf_use
+
+        po:
+            - [a,ncit:C32401]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_pcm_inf_use)"
+
+    hn_bl_therrt_ph_oar_pcm_inf_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_pcm_inf_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_pcm_inf_md)"
+
+    hn_bl_therrt_ph_oar_ant_ey_r_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_ant_ey_r_use
+
+        po:
+            - [a,ncit:C25228]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_ant_ey_r_use)"
+
+    hn_bl_therrt_ph_oar_ant_ey_r_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_ant_ey_r_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_ant_ey_r_md)"
+
+    hn_bl_therrt_ph_oar_ant_ey_l_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_ant_ey_l_use
+
+        po:
+            - [a,ncit:C25229]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_ant_ey_l_use)"
+
+    hn_bl_therrt_ph_oar_ant_ey_l_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_ant_ey_l_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_ant_ey_l_md)"
+
+    hn_bl_therrt_ph_oar_post_ey_r_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_post_ey_r_use
+
+        po:
+            - [a,ncit:C25228]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_post_ey_r_use)"
+
+    hn_bl_therrt_ph_oar_post_ey_r_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_post_ey_r_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_post_ey_r_md)"
+
+    hn_bl_therrt_ph_oar_post_ey_l_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_post_ey_l_use
+
+        po:
+            - [a,ncit:C25229]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_post_ey_l_use)"
+
+    hn_bl_therrt_ph_oar_post_ey_l_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_post_ey_l_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_post_ey_l_md)"
+
+    hn_bl_therrt_ph_oar_lacr_r_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_lacr_r_use
+
+        po:
+            - [a,roo:C25228]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_lacr_r_use)"
+
+    hn_bl_therrt_ph_oar_lacr_r_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_lacr_r_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_lacr_r_md)"
+
+    hn_bl_therrt_ph_oar_lacr_l_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_lacr_l_use
+
+        po:
+            - [a,roo:C25228]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_lacr_l_use)"
+
+    hn_bl_therrt_ph_oar_lacr_l_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_lacr_l_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_lacr_l_md)"
+
+    hn_bl_therrt_ph_oar_bumu_r_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_bumu_r_use
+
+        po:
+            - [a,ncit:C12505]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_bumu_r_use)"
+
+    hn_bl_therrt_ph_oar_bumu_r_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_bumu_r_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_bumu_r_md)"
+
+    hn_bl_therrt_ph_oar_bumu_l_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_bumu_l_use
+
+        po:
+            - [a,ncit:C12505]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_bumu_l_use)"
+
+    hn_bl_therrt_ph_oar_bumu_l_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_bumu_l_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_bumu_l_md)"
+
+    hn_bl_therrt_ph_oar_mand_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_mand_use
+
+        po:
+            - [a,roo:C100140]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_mand_use)"
+
+    hn_bl_therrt_ph_oar_mand_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_mand_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_mand_md)"
+
+    hn_bl_therrt_ph_oar_mand_maxd:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_mand_maxd
+
+        po:
+            - [a,roo:C100366]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_mand_maxd)"
+
+    hn_bl_therrt_ph_oar_coch_r_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_coch_r_use
+
+        po:
+            - [a,roo:C100485]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_coch_r_use)"
+
+    hn_bl_therrt_ph_oar_coch_r_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_coch_r_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_coch_r_md)"
+
+    hn_bl_therrt_ph_oar_coch_l_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_coch_l_use
+
+        po:
+            - [a,roo:C100484]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_coch_l_use)"
+
+    hn_bl_therrt_ph_oar_coch_l_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_coch_l_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_coch_l_md)"
+
+    hn_bl_therrt_ph_oar_supglot_la_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_supglot_la_use
+
+        po:
+            - [a,ncit:C12279]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_supglot_la_use)"
+
+    hn_bl_therrt_ph_oar_supglot_la_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_supglot_la_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_supglot_la_md)"
+
+    hn_bl_therrt_ph_oar_glot_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_glot_use
+
+        po:
+            - [a,roo:C100127]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_glot_use)"
+
+    hn_bl_therrt_ph_oar_glot_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_glot_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_glot_md)"
+
+    hn_bl_therrt_ph_oar_art_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_art_use
+
+        po:
+            - [a,ncit:C32148]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_art_use)"
+
+    hn_bl_therrt_ph_oar_art_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_art_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_art_md)"
+
+    hn_bl_therrt_ph_oar_cric_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_cric_use
+
+        po:
+            - [a,ncit:C33836]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_cric_use)"
+
+    hn_bl_therrt_ph_oar_cric_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_cric_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_cric_md)"
+
+    hn_bl_therrt_ph_oar_c_oes_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_c_oes_use
+
+        po:
+            - [a,roo:C100116]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_c_oes_use)"
+
+    hn_bl_therrt_ph_oar_c_oes_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_c_oes_md
+
+        po:
+            - [a,roo:C100363]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_c_oes_md)"
+
+    hn_bl_therrt_ph_oar_thy_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_thy_use
+
+        po:
+            - [a,roo:C100177]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_thy_use)"
+
+    hn_bl_therrt_ph_oar_thy_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_thy_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_thy_md)"
+
+    hn_bl_therrt_ph_oar_brn_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_brn_use
+
+        po:
+            - [a,roo:C100096]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_brn_use)"
+
+    hn_bl_therrt_ph_oar_brn_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_brn_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_brn_md)"
+
+    hn_bl_therrt_ph_oar_brn_maxd:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_brn_maxd
+
+        po:
+            - [a,roo:C100366]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_brn_maxd)"
+
+    hn_bl_therrt_ph_oar_crbr_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_crbr_use
+
+        po:
+            - [a,roo:C100104]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_crbr_use)"
+
+    hn_bl_therrt_ph_oar_crbr_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_crbr_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_crbr_md)"
+
+    hn_bl_therrt_ph_oar_crbr_maxd:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_crbr_maxd
+
+        po:
+            - [a,roo:C100366]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_crbr_maxd)"
+
+    hn_bl_therrt_ph_oar_crbl_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_crbl_use
+
+        po:
+            - [a,ncit:C100103]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_crbl_use)"
+
+    hn_bl_therrt_ph_oar_crbl_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_crbl_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_crbl_md)"
+
+    hn_bl_therrt_ph_oar_crbl_maxd:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_crbl_maxd
+
+        po:
+            - [a,roo:C100366]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_crbl_maxd)"
+
+    hn_bl_therrt_ph_oar_brnst_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_brnst_use
+
+        po:
+            - [a,roo:C100097]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_brnst_use)"
+
+    hn_bl_therrt_ph_oar_brnst_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_brnst_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_brnst_md)"
+
+    hn_bl_therrt_ph_oar_brnst_maxd:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_brnst_maxd
+
+        po:
+            - [a,roo:C100366]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_brnst_maxd)"
+
+    hn_bl_therrt_ph_oar_pit_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_pit_use
+
+        po:
+            - [a,roo:C100159]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_pit_use)"
+
+    hn_bl_therrt_ph_oar_pit_md:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_pit_md
+
+        po:
+            - [a,roo:C100361]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_pit_md)"
+
+    hn_bl_therrt_ph_oar_opt_chi_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_opt_chi_use
+
+        po:
+            - [a,roo:C100105]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_opt_chi_use)"
+
+    hn_bl_therrt_ph_oar_opt_chi_maxd:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_opt_chi_maxd
+
+        po:
+            - [a,roo:C100366]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_opt_chi_maxd)"
+
+    hn_bl_therrt_ph_oar_opt_nv_r_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_opt_nv_r_use
+
+        po:
+            - [a,roo:C100511]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_opt_nv_r_use)"
+
+    hn_bl_therrt_ph_oar_opt_nv_r_maxd:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_opt_nv_r_maxd
+
+        po:
+            - [a,roo:C100366]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_opt_nv_r_maxd)"
+
+    hn_bl_therrt_ph_oar_opt_nv_l_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_opt_nv_l_use
+
+        po:
+            - [a,roo:C100510]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_opt_nv_l_use)"
+
+    hn_bl_therrt_ph_oar_opt_nv_l_maxd:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_opt_nv_l_maxd
+
+        po:
+            - [a,roo:C100366]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_opt_nv_l_maxd)"
+
+    hn_bl_therrt_ph_oar_spine_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_spine_use
+
+        po:
+            - [a,roo:C100170]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_spine_use)"
+
+    hn_bl_therrt_ph_oar_spine_maxd:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_spine_maxd
+
+        po:
+            - [a,roo:C100366]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_spine_maxd)"
+
+    hn_bl_therrt_ph_oar_car_r_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_car_r_use
+
+        po:
+            - [a,roo:C100459]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_car_r_use)"
+
+    hn_bl_therrt_ph_oar_car_r_maxd:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_car_r_maxd
+
+        po:
+            - [a,roo:C100366]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_car_r_maxd)"
+
+    hn_bl_therrt_ph_oar_car_l_use:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_car_l_use
+
+        po:
+            - [a,roo:C100460]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_car_l_use)"
+
+    hn_bl_therrt_ph_oar_car_l_maxd:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/photonPlanning/oarPhoton/hn_bl_therrt_ph_oar_car_l_maxd
+
+        po:
+            - [a,roo:C100366]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_therrt_ph_oar_car_l_maxd)"
+
+    hn_bl_dose_high_dose:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/hn_bl_dose_high_dose
+
+        po:
+            - [a,ncit:C173282]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_dose_high_dose)"
+
+    hn_bl_dose_high_fr_dose:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/hn_bl_dose_high_fr_dose
+
+        po:
+            - [a,roo:C100353]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_dose_high_fr_dose)"
+
+    hn_bl_dose_high_fr_n:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/hn_bl_dose_high_fr_n
+
+        po:
+            - [a,ncit:C198132]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_dose_high_fr_n)"
+
+    hn_bl_dose_inter_fr_dose:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/hn_bl_dose_inter_fr_dose
+
+        po:
+            - [a,roo:C100353]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_dose_inter_fr_dose)"
+
+    hn_bl_dose_inter_fr_n:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/hn_bl_dose_inter_fr_n
+
+        po:
+            - [a,ncit:C198132]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_dose_inter_fr_n)"
+
+    hn_bl_dose_low_fr_dose:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/hn_bl_dose_low_fr_dose
+
+        po:
+            - [a,roo:C100353]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_dose_low_fr_dose)"
+
+    hn_bl_dose_low_fr_n:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/dosePlanning/hn_bl_dose_low_fr_n
+
+        po:
+            - [a,ncit:C198132]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_dose_low_fr_n)"
+
+    hn_bl_tox_date_consult:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/hn_bl_tox_date_consult
+
+        po:
+            - [a,ncit:C93511]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_tox_date_consult)"
+
+    hn_bl_tox_xerostomia:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/radiationInducedSideEffects/xerostomia/hn_bl_tox_xerostomia
+
+        po:
+            - [a,ncit:C26917]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_tox_xerostomia)"
+
+    hn_bl_tox_dysph:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/radiationInducedSideEffects/dysphagia/hn_bl_tox_dysph
+
+        po:
+            - [a,ncit:C2980]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_tox_dysph)"
+
+    hn_bl_tox_mucositis:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/radiationInducedSideEffects/oralMucositis/hn_bl_tox_mucositis
+
+        po:
+            - [a,ncit:C26887]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_tox_mucositis)"
+
+    hn_bl_tox_dermatitis:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/radiationInducedSideEffects/dermatitisRadiation/hn_bl_tox_dermatitis
+
+        po:
+            - [a,ncit:C26887]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_tox_dermatitis)"
+
+    hn_bl_tox_osteoradion:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/radiationInducedSideEffects/osteoRadioNecrosis/hn_bl_tox_osteoradion
+
+        po:
+            - [a,ncit:C63707]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_tox_osteoradion)"
+
+    hn_bl_tox_softtnecr:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/radiationInducedSideEffects/softTissueNecrosis/hn_bl_tox_softtnecr
+
+        po:
+            - [a,ncit:C53841]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_tox_softtnecr)"
+
+    hn_bl_tox_mi:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/myocardialInfarction/hn_bl_tox_mi
+
+        po:
+            - [a,ncit:C27996]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_tox_mi)"
+
+    hn_bl_tox_heart_fail:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/heartFailure/hn_bl_tox_heart_fail
+
+        po:
+            - [a,ncit:C50577]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_tox_heart_fail)"
+
+    hn_bl_tox_per_vas_dis:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/claudicatioIntermittens/hn_bl_tox_per_vas_dis
+
+        po:
+            - [a,ncit:C50495]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_tox_per_vas_dis)"
+
+    hn_bl_tox_demen:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/dementia/hn_bl_tox_demen
+
+        po:
+            - [a,ncit:C4786]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_tox_demen)"
+
+    hn_bl_tox_copd:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/cOPD/hn_bl_tox_copd
+
+        po:
+            - [a,ncit:C3199]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_tox_copd)"
+
+    hn_bl_tox_con_tis_dis:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/connectiveTissueDisease/hn_bl_tox_con_tis_dis
+
+        po:
+            - [a,ncit:C26729]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_tox_con_tis_dis)"
+
+    hn_bl_tox_pep_ulc_dis:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/pepticUlcerDisease/hn_bl_tox_pep_ulc_dis
+
+        po:
+            - [a,ncit:C3318]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_tox_pep_ulc_dis)"
+
+    hn_bl_tox_liv_dis:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/liverDisease/hn_bl_tox_liv_dis
+
+        po:
+            - [a,ncit:C113609]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_tox_liv_dis)"
+
+    hn_bl_tox_dm:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/diabetesMellitus/hn_bl_tox_dm
+
+        po:
+            - [a,ncit:C2985]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_tox_dm)"
+
+    hn_bl_tox_hemip:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/hemiplegia/hn_bl_tox_hemip
+
+        po:
+            - [a,ncit:C64329]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_tox_hemip)"
+
+    hn_bl_tox_ckd:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/chronicKidneyDisease/hn_bl_tox_ckd
+
+        po:
+            - [a,ncit:C80078]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_tox_ckd)"
+
+    hn_bl_tox_prev_sol_tum:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/previousSolidTumour/hn_bl_tox_prev_sol_tum
+
+        po:
+            - [a,ncit:C9292]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_tox_prev_sol_tum)"
+
+    hn_bl_tox_prev_leuk:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/previousLeukemia/hn_bl_tox_prev_leuk
+
+        po:
+            - [a,ncit:C3161]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_tox_prev_leuk)"
+
+    hn_bl_tox_prev_lymph:
+        sources:
+            - patientWeightSource
+        s: protrait:PatientID/$(hn_bl_id)/cancerTreatment/radiotherapy/headAndNeckCharlsonComorbidityIndex/previousLymphoma/hn_bl_tox_prev_lymph
+
+        po:
+            - [a,ncit:C3208]
+            - p: protrait:has
+              o:
+                value: "$(hn_bl_tox_prev_lymph)"

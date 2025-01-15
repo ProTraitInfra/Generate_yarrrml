@@ -1,5 +1,4 @@
 import pandas as pd
-import csv
 from jinja2 import Template
 import math
 from itertools import product
@@ -181,7 +180,7 @@ def generate_template_column(dt):
 if __name__ == "__main__":
     l_c = ["Parent #1", "Parent #2", "Parent #3", "Parent #4", "Parent #5", "Parent #6"]
 
-    data = pd.read_csv("/Users/alessioromita/Downloads/onto.csv", delimiter=";")
+    data = pd.read_csv("example-data/onto.csv", delimiter=";")
 
     list_col_pre = column_process(data)
 
@@ -200,7 +199,7 @@ if __name__ == "__main__":
     generated_mapping_sub_predicate = tmpl0.render(
         prods=ls_col)
 
-    output_file = "../output_example/output_template_test.yaml"
+    output_file = "../output/output_template.yaml"
 
     content = textwrap.dedent("""\
     prefixes:

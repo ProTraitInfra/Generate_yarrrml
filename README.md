@@ -26,7 +26,7 @@ Ensure the following dependencies are installed before running the script:
 Install dependencies with the following command:
 
 ```bash
-pip install pandas jinja2
+pip install -r requirements.txt
 ```
 
 ---
@@ -53,11 +53,11 @@ pip install pandas jinja2
 4. **Run the Script**:
    Execute the script with the following command:
    ```bash
-   python main.py
+   python src/process.py
    ```
    The generated YAML file will be saved to:
    ```
-   ../output_example/output_template_test.yaml
+   ../output/output_template.yaml
    ```
 
 ---
@@ -137,5 +137,3 @@ Generates individual column templates using Jinja2.
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
-
-

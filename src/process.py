@@ -4,9 +4,10 @@ from jinja2 import Template
 import math
 from itertools import product
 from template import template0, template2, template
+import textwrap
 
 
-def iterate_over_concept(data_f: pd.DataFrame, concept: list):
+def iterate_over_concept(data_f: pd.DataFrame, concept: list) -> list:
     """
     Create list of all the concepts in the columns specified in the concept list
     :param data_f:
@@ -199,10 +200,10 @@ if __name__ == "__main__":
     generated_mapping_sub_predicate = tmpl0.render(
         prods=ls_col)
 
-    output_file = "../output_example/output_template2.yaml"
+    output_file = "../output_example/output_template_test.yaml"
 
-    with open(output_file, "w") as f:
-        f.write("""prefixes:
+    content = textwrap.dedent("""\
+    prefixes:
       ex: "http://www.example.com/"
       schema: "http://schema.org/"
       rdf: "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -211,17 +212,18 @@ if __name__ == "__main__":
       grel: http://users.ugent.be/~bjdmeest/function/grel.ttl#
       roo: "http://www.cancerdata.org/roo/"
       purl: "http://purl.bioontology.org/ontology/SNMI/"
-    
-    
-    
+
     sources:
       patientWeightSource:
         #query: SELECT * FROM public.hn_bl;
         access: "/app/data/dataexport.csv"
         referenceFormulation: ql:CSV
-        
+
     mappings:
     """)
+
+    with open(output_file, "w") as f:
+        f.write(content)
 
         f.write(generated_mapping_sub_predicate)
 
@@ -230,4 +232,3 @@ if __name__ == "__main__":
 
         for item in template_list_column:
             f.write(item)
-

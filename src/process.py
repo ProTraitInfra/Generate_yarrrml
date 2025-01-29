@@ -1,3 +1,4 @@
+from pathlib import Path
 import pandas as pd
 from jinja2 import Template
 import math
@@ -199,8 +200,7 @@ if __name__ == "__main__":
     generated_mapping_sub_predicate = tmpl0.render(
         prods=ls_col)
 
-    output_file = "../output/output_template.yaml"
-
+    output_file = Path("output/output_template.yaml")
     content = textwrap.dedent("""\
     prefixes:
       ex: "http://www.example.com/"
@@ -221,6 +221,7 @@ if __name__ == "__main__":
     mappings:
     """)
 
+    output_file.parent.mkdir(parents=True, exist_ok=True)
     with open(output_file, "w") as f:
         f.write(content)
 
